@@ -1,4 +1,21 @@
 ActivitiesApp::Application.routes.draw do
+  get "actions/new"
+
+  get "actions/show"
+
+  get "actions/edit"
+
+  get "actions/delete"
+
+  get "people/new"
+
+  get "people/show"
+
+  get "people/edit"
+
+  get "people/delete"
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
