@@ -3,6 +3,7 @@ class ActionsController < ApplicationController
   end
 
   def show
+  		@actions = Action.all
   end
 
   def edit

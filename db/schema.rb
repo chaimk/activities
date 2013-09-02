@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130812153257) do
+ActiveRecord::Schema.define(:version => 20130814075158) do
 
   create_table "actions", :force => true do |t|
-    t.string   "peopleID"
-    t.string   "activityID"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "person_id"
+    t.string   "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "people", :force => true do |t|

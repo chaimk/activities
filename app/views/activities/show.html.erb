@@ -1,0 +1,48 @@
+<% provide(:title, 'Show An Activity') %>
+<h1><%= @activity.name %></h1>
+<h2>Information for "<%= @activity.name %>":</h2>
+
+<!-- <% @activity.attributes.to_options.to_a %> -->
+
+<table border="1" cellpadding="4" cellspacing="0">
+	<tr>
+		<% @activity.attributes.each do |a| %>
+			<th><%= a[0] %></th>
+		<% end %>
+	</tr>
+	
+	<tr>
+		<% @activity.attributes.each do |a| %>
+			<td><%= a[1] %></td>
+		<% end %>
+	</tr>
+</table>
+
+<% if @activity.actions.length == 0 %>
+	<h2>No one has done activity "<%= @activity.name %>" yet.&nbsp;&nbsp;:(</h2>
+
+<% else %>
+	<h2>List of times activity "<%= @activity.name %>" has been performed:</h2>
+
+	<table border="1" cellpadding="4" cellspacing="0">
+		<tr>
+			<th>ID</th>
+			<th>Person</th>
+			<th>Created</th>
+			<th>Modified</th>
+		</tr>
+
+		<% @activity.actions.each do |a| %>
+			<tr>
+				<td><%= a.id %></td>
+				<td><%= link_to a.person.name, person_path(a.person.id) %></td>
+				<td><%= a.created_at %></td>
+				<td><%= a.updated_at %></td>
+			</tr>
+		<% end %>
+
+	</table>
+<% end %>
+
+<br>
+<a href="/activities">Show all activities</a> &nbsp; | &nbsp; <%= link_to "Delete this activity", @activity, method: :delete, data: { confirm: "Are you sure?" } %>

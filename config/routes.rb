@@ -1,4 +1,10 @@
 ActivitiesApp::Application.routes.draw do
+
+  get "activities/home"
+
+  resources :people
+  resources :activities
+
   get "actions/new"
 
   get "actions/show"
@@ -6,14 +12,6 @@ ActivitiesApp::Application.routes.draw do
   get "actions/edit"
 
   get "actions/delete"
-
-  get "people/new"
-
-  get "people/show"
-
-  get "people/edit"
-
-  get "people/delete"
 
   
   # The priority is based upon order of creation:

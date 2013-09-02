@@ -1,0 +1,19 @@
+<% provide(:title, 'Create An Activity') %>
+
+<h1>Create a new activity</h1>
+
+<%= form_for(@activity) do |t| %>
+
+	<%= t.label :name %>
+	<%= t.text_field :name %>
+
+	<%= t.label :category %>
+	<%= t.select :category, [['chore', 'chore'], ['physical', 'physical'], 
+	['enrichment', 'enrichment']] %>
+
+	<%= t.label :points %>
+	<%= t.text_field :points %>
+
+	<%= t.submit "Create an activity", class: "btn btn-large btn-primary" %>
+
+<% end %>

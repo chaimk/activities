@@ -1,0 +1,21 @@
+<% provide(:title, 'Show All People') %>
+<h1>List of All People</h1>
+
+<table border="1" cellpadding="4" cellspacing="0">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Created</th>
+		<th>Modified</th>
+	</tr>
+
+	<% @people.each do |p| %>
+	<tr>
+		<td><%= p.id %></td>
+		<td><%= link_to p.name, person_path(p.id) %></td>
+		<td><%= p.created_at %></td>
+		<td><%= p.updated_at %></td>
+	</tr>
+	<% end %>
+
+</table>

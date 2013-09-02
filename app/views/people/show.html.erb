@@ -1,3 +1,26 @@
 <% provide(:title, 'Show People') %>
-<h1>Person Name Goes Here</h1>
-<p>Find me in app/views/people/show.html.erb</p>
+<h1><%= @person.name %></h1>
+
+<h2><%= @person.name %>'s Actions:</h2>
+
+<table border="1">
+	<tr>
+		<th>ID</th>
+		<th>Activity</th>
+		<th>Created</th>
+		<th>Modified</th>
+	</tr>
+
+	<% @person.actions.each do |p| %>
+	<tr>
+		<td><%= p.id %></td>
+		<td><%= link_to p.activity.name, activity_path(p.activity.id) %></td>
+		<td><%= p.created_at %></td>
+		<td><%= p.updated_at %></td>
+	</tr>
+	<% end %>
+
+</table>
+
+
+<a href="/people">Show all people</a>

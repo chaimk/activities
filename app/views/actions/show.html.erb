@@ -1,3 +1,23 @@
 <% provide(:title, 'Show Actions') %>
-<h1>Action Name Goes Here</h1>
-<p>Find me in app/views/actions/show.html.erb</p>
+<h1>All Actions</h1>
+
+<table border="1">
+	<tr>
+		<th>ID</th>
+		<th>Person</th>
+		<th>Activity</th>
+		<th>Created</th>
+		<th>Modified</th>
+	</tr>
+
+	<% @actions.each do |a| %>
+	<tr>
+		<td><%= a.id %></td>
+		<td><%= a.person.name %></td>
+		<td><%= a.activity.name %></td>
+		<td><%= a.created_at %></td>
+		<td><%= a.updated_at %></td>
+	</tr>
+	<% end %>
+
+</table>
