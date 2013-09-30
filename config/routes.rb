@@ -1,6 +1,6 @@
 ActivitiesApp::Application.routes.draw do
 
-  get "activities/home"
+  # root :to => 'activities'
 
   resources :people
   resources :activities

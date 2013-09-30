@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814075158) do
+ActiveRecord::Schema.define(:version => 20130917050240) do
 
   create_table "actions", :force => true do |t|
     t.string   "person_id"
@@ -28,10 +28,15 @@ ActiveRecord::Schema.define(:version => 20130814075158) do
     t.datetime "updated_at"
   end
 
+  add_index "activities", ["name"], :name => "index_activities_on_name", :unique => true
+
   create_table "people", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "password"
+    t.string   "password_digest"
+    t.string   "password_confirmation"
   end
 
 end
