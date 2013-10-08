@@ -79,3 +79,17 @@ p {
 	color: #fff;
 	text-decoration: none;
 }
+
+/* errors */
+
+#error_explanation {
+	color: #f00;
+	ul {
+		margin: 0 24px 24px 36px;
+		font-weight: bold;
+	}
+}
+.field_with_errors {
+	@extend .control-group;
+	@extend .error;
+}

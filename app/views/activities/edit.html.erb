@@ -1,2 +1,21 @@
-<h1>Activities#edit</h1>
-<p>Find me in app/views/activities/edit.html.erb</p>
+<% provide(:title, 'Edit An Activity') %>
+
+<h1>Edit an existing activity</h1>
+
+<%= form_for(@activity) do |t| %>
+
+	<%= render 'shared/error_messages' %>
+
+	<%= t.label :name %>
+	<%= t.text_field :name %>
+
+	<%= t.label :category %>
+	<%= t.select :category, [['chore', 'chore'], ['physical', 'physical'], 
+	['enrichment', 'enrichment']] %>
+
+	<%= t.label :points %>
+	<%= t.text_field :points %>
+
+	<%= t.submit "Apply changes", class: "btn btn-large btn-primary" %>
+
+<% end %>

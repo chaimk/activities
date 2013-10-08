@@ -1,6 +1,6 @@
 ActivitiesApp::Application.routes.draw do
 
-  # root :to => 'activities'
+  root :to => 'activities#index'
 
   resources :people
   resources :activities

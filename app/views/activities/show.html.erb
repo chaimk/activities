@@ -45,4 +45,4 @@
 <% end %>
 
 <br>
-<a href="/activities">Show all activities</a> &nbsp; | &nbsp; <%= link_to "Delete this activity", @activity, method: :delete, data: { confirm: "Are you sure?" } %>
+<a href="/activities">Show all activities</a> &nbsp; | &nbsp; <%= link_to "Delete this activity", @activity, method: :delete, data: { confirm: "Are you sure?" } %> &nbsp; | &nbsp; <%= link_to "Edit this activity", edit_activity_path(@activity) %>

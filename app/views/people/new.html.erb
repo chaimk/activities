@@ -1,2 +1,17 @@
-<h1>People#new</h1>
-<p>Find me in app/views/people/new.html.erb</p>
+<% provide(:title, 'Create A Person') %>
+
+<h1>Create a new person</h1>
+
+<%= form_for(@person) do |p| %>
+
+	<%= render 'shared/error_messages' %>
+
+	<%= p.label :name %>
+	<%= p.text_field :name %>
+
+	<%= p.label :password %>
+	<%= p.text_field :password %>
+
+	<%= p.submit "Create a person", class: "btn btn-large btn-primary" %>
+
+<% end %>
