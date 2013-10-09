@@ -13,8 +13,6 @@ describe Person do
 	it { should respond_to(:password_digest) }
 	it { should respond_to(:password_confirmation) }
 
-	it { should be_valid }
-
 	describe "when person's name is empty" do
 		before { @person.name = " "}
 		it { should_not be_valid }

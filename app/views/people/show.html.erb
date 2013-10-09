@@ -30,4 +30,4 @@
 <% end %>
 
 <br>
-<a href="/people">Show all people</a>
+<a href="/people">Show all people</a> &nbsp; | &nbsp; <%= link_to "Delete this person", @person, method: :delete, data: { confirm: "Are you sure?" } %> &nbsp; | &nbsp; <%= link_to "Edit this person", edit_person_path(@person) %>

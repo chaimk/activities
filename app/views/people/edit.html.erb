@@ -4,13 +4,9 @@
 
 <%= form_for(@person) do |p| %>
 
-	<%= render 'shared/error_messages' %>
+	<%= render partial: 'shared/error_messages', object: @person %>
 
-	<%= p.label :name %>
-	<%= p.text_field :name %>
-
-	<%= p.label :password %>
-	<%= p.text_field :password %>
+	<%= render partial: 'person_field', object: p %>
 
 	<%= p.submit "Apply changes", class: "btn btn-large btn-primary" %>
 
