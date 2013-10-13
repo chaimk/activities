@@ -4,14 +4,7 @@ ActivitiesApp::Application.routes.draw do
 
   resources :people
   resources :activities
-
-  get "actions/new"
-
-  get "actions/show"
-
-  get "actions/edit"
-
-  get "actions/delete"
+  resources :actions
 
   
   # The priority is based upon order of creation:
