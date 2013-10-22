@@ -31,3 +31,8 @@
 
 <br>
 <a href="/people">Show all people</a> &nbsp; | &nbsp; <%= link_to "Delete this person", @person, method: :delete, data: { confirm: "Are you sure?" } %> &nbsp; | &nbsp; <%= link_to "Edit this person", edit_person_path(@person) %>
+
+<%= button_to "Show all people", { :action => "index" }, { :method => :get } %>
+<%= button_to "Delete this person", { :action => "destroy", :id => @person.id }, { :confirm => "Are you sure?", :method => :delete } %>
+
+<%= submit_tag "Test me!", :type => 'button', :onclick => 'alert("It works!")' %>
