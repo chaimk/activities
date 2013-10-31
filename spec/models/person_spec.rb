@@ -12,6 +12,8 @@ describe Person do
 	it { should respond_to(:password) }
 	it { should respond_to(:password_digest) }
 	it { should respond_to(:password_confirmation) }
+	it { should respond_to(:remember_token) }
+	it { should respond_to(:authenticate) }
 
 	describe "when person's name is empty" do
 		before { @person.name = " "}
@@ -51,6 +53,11 @@ describe Person do
 	describe "when password is too short" do
 		before { @person.password = @person.password_confirmation = "1234567" }
 		it { should_not be_valid }
+	end
+
+	describe "remember token" do
+		before { @person.save }
+		its(:remember_token) { should_not be_blank }
 	end
 
 
