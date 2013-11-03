@@ -1,7 +1,7 @@
 FactoryGirl.define do
 	factory :person do
-		name     "Rumple Stiltsken"
-		password "foobarme"
-		password_confirmation "foobarme"
+		name     "test user 2"
+		password "bluefish"
+		password_confirmation "bluefish"
 	end 
 end

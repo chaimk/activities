@@ -6,6 +6,7 @@ class PeopleController < ApplicationController
 	def create
 		@person = Person.new(params[:person])
 		if @person.save
+			sign_in @person
 			flash[:success] = "New person was successfully added."
 			redirect_to @person
 		else

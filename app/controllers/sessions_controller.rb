@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 	def create
 		person = Person.where('lower(name) = ?', params[:session][:name].downcase).first
 		if person && person.authenticate(params[:session][:password])
+			sign_in(person)
 			flash[:success] = 'User was signed in successfully, but no way to view it at the moment...'
 			redirect_to person
       # Sign the user in and redirect to the user's show page.
@@ -16,6 +17,8 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
+		sign_out
+		redirect_to root_path
 	end
 
 end
