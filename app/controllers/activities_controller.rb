@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+	before_filter :admin_user, only: [:create, :update, :destroy]
+
 	def new
 		@activity = Activity.new
 	end
@@ -40,4 +42,13 @@ class ActivitiesController < ApplicationController
 		flash[:success] = "Activity has been deleted."
 		redirect_to activities_path
 	end
+
+	private
+		def admin_user
+			if ( !signed_in? || !current_person.admin )
+				flash[:error] = "Operation failed. You must be signed in as an admin-level user to manage activities."
+				redirect_to signin_path, notice: "Please sign in."
+			end
+		end
+
 end

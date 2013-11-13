@@ -7,13 +7,19 @@ class PeopleController < ApplicationController
 	end
 
 	def create
-		@person = Person.new(params[:person])
-		if @person.save
-			sign_in @person
-			flash[:success] = "New person was successfully added."
-			redirect_to @person
+		if ( !signed_in? || !current_person.admin )
+			flash[:error] = "Operation failed. You must be signed in as an admin-level user to manage people."
+			redirect_to signin_path, notice: "Please sign in." 
 		else
-			render 'new'
+			@person = Person.new(params[:person])
+			if @person.save
+				flash[:success] = "New person was successfully added."
+				flash[:notice] = params
+				redirect_to @person
+			else
+				flash[:error] = "An error occurred when attempting to add a new person."
+				render 'new'
+			end
 		end
 	end
 
@@ -40,8 +46,17 @@ class PeopleController < ApplicationController
 	end
 
 	def destroy
-		Person.find(params[:id]).destroy
-		flash[:success] = "Person has been deleted."
+		@person = Person.find(params[:id])
+		if !current_person.admin
+			flash[:error] = "Operation failed. Only admin-level users are authorized to manage people. Sign in as an admin user and try again."
+		else  # current person IS an admin, but:
+			if current_person?(@person)
+				flash[:error] = "You are not permitted to delete yourself!"
+			else # current person is admin and you're not deleting yourself:
+				@person.destroy
+				flash[:success] = "Person has been deleted."
+			end
+		end
 		redirect_to people_path
 	end
 
@@ -52,7 +67,7 @@ class PeopleController < ApplicationController
 
 		def correct_user
 			@person = Person.find(params[:id])
-			if !current_person?(@person)
+			if ( !current_person?(@person) && !current_person.admin )
 				flash[:error] = "You are not authorized to edit user #{@person.name}."
 				redirect_to(root_path)
 			end

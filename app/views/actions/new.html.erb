@@ -1,2 +1,19 @@
-<h1>Actions#new</h1>
-<p>Find me in app/views/actions/new.html.erb</p>
+<% provide(:title, 'Create An Action') %>
+
+<h1>Create a new action for <%= @action.person.name %></h1>
+
+<%= form_for(@action) do |a| %>
+
+	<%= render partial: 'shared/error_messages', object: @action %>
+
+
+	<%= a.hidden_field(:person_id) %>
+
+	<%= a.label "Activity:" %>
+	<%= a.collection_select(:activity_id, Activity.all, :id, :name) %>
+	
+	<br><br>
+
+	<%= a.submit "Create this action", class: "btn btn-large btn-primary" %>
+
+<% end %>
