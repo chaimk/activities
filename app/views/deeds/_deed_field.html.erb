@@ -1,0 +1,6 @@
+	<% deed_field.hidden_field(:person_id) %>
+
+	<%= deed_field.label "Activity" %>
+	<%= deed_field.collection_select(:activity_id, Activity.all, :id, :name) %>
+	
+	<br><br>

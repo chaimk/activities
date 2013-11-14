@@ -1,0 +1,19 @@
+<% provide(:title, 'Create An Deed') %>
+
+<h1>Create a new deed for <%= @deed.person.name %></h1>
+
+<%= form_for(@deed) do |a| %>
+
+	<%= render partial: 'shared/error_messages', object: @deed %>
+
+
+	<%= a.hidden_field(:person_id) %>
+
+	<%= a.label "Activity:" %>
+	<%= a.collection_select(:activity_id, Activity.all, :id, :name) %>
+	
+	<br><br>
+
+	<%= a.submit "Create this deed", class: "btn btn-large btn-primary" %>
+
+<% end %>

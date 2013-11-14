@@ -55,6 +55,22 @@ describe "Authentication" do
 				end 
 			end
 		end 
+
+		describe "as wrong user" do
+			let(:person) { FactoryGirl.create(:person) }
+			let(:wrong_person) { FactoryGirl.create(:person, name: "I am the wrong user!") }
+			before { sign_in person }
+
+			describe "visiting People#edit page" do
+				before { visit edit_person_path(wrong_person) }
+				it { should_not have_selector('title', text: full_title('Edit person')) }
+			end
+			
+			describe "submitting a PUT request to the People#update action" do
+				before { put person_path(wrong_person) }
+				specify { response.should redirect_to(root_path) }
+			end 
+		end
 	end
 
 end

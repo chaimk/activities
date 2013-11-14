@@ -1,35 +1,35 @@
-<% provide(:title, 'Show An Action') %>
-<h1> This Action's Info:</h1>
+<% provide(:title, 'Show An Deed') %>
+<h1> This Deed's Info:</h1>
 <table cellpadding="5">
 	<tr>
 		<th>Person ID</th>
-		<td><%= @action.person_id %></td>
+		<td><%= @deed.person_id %></td>
 	</tr>
 	<tr>
 		<th>Person Name</th>
-		<td><%= @action.person.name %></td>
+		<td><%= @deed.person.name %></td>
 	</tr>
 	<tr>
 		<th>Activity ID</th>
-		<td><%= @action.activity_id %></td>
+		<td><%= @deed.activity_id %></td>
 	</tr>
 	<tr>
 		<th>Activity Name</th>
-		<td><%= @action.activity.name %></td>
+		<td><%= @deed.activity.name %></td>
 	</tr>
 	<tr>
 		<th>When Created</th>
-		<td><%= @action.activity.created_at %></td>
+		<td><%= @deed.activity.created_at %></td>
 	</tr>
 </table>
 
 <!-- The following block of code is commented out:  *********
 <% if false %>
-<h2>Times when <%= @action.name %> has been performed:
+<h2>Times when <%= @deed.name %> has been performed:
 <!-- How to do a self-referential lookup (inner join with itself)?
-		Would have to specify this in models/actions.rb then rake db?
+		Would have to specify this in models/deeds.rb then rake db?
 
-<% if @action.SOMETHING.length == 0 %>
+<% if @deed.SOMETHING.length == 0 %>
 	None</h2>
 
 <% else %>
@@ -43,7 +43,7 @@
 			<th>Modified</th>
 		</tr>
 
-		<% @action.actions.each do |p| %>
+		<% @deed.deeds.each do |p| %>
 		<tr>
 			<td><%= p.id %></td>
 			<td><%= link_to p.activity.name, activity_path(p.activity.id) %></td>
@@ -58,4 +58,4 @@
 ***** This is the end of the commented-out code -->
 
 <br>
-<a href="/actions">Show all actions</a> &nbsp; | &nbsp; <%= link_to "Delete this action", @action, method: :delete, data: { confirm: "Are you sure?" } %> &nbsp; | &nbsp; <%= link_to "Edit this action", edit_action_path(@action) %>
+<a href="/deeds">Show all deeds</a> &nbsp; | &nbsp; <%= link_to "Delete this deed", @deed, method: :delete, data: { confirm: "Are you sure?" } %> &nbsp; | &nbsp; <%= link_to "Edit this deed", edit_deed_path(@deed) %>

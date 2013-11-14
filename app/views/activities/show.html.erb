@@ -18,7 +18,7 @@
 	</tr>
 </table>
 
-<% if @activity.actions.length == 0 %>
+<% if @activity.deeds.length == 0 %>
 	<h2>No one has done activity "<%= @activity.name %>" yet.&nbsp;&nbsp;:(</h2>
 
 <% else %>
@@ -32,7 +32,7 @@
 			<th>Modified</th>
 		</tr>
 
-		<% @activity.actions.each do |a| %>
+		<% @activity.deeds.each do |a| %>
 			<tr>
 				<td><%= a.id %></td>
 				<td><%= link_to a.person.name, person_path(a.person.id) %></td>

@@ -1,9 +1,9 @@
 <% provide(:title, @person.name) %>
 <h1><%= @person.name %></h1>
 
-<h2><%= @person.name %>'s Actions:
+<h2><%= @person.name %>'s Deeds:
 
-<% if @person.actions.length == 0 %>
+<% if @person.deeds.length == 0 %>
 	None</h2>
 
 <% else %>
@@ -17,7 +17,7 @@
 			<th>Modified</th>
 		</tr>
 
-		<% @person.actions.each do |p| %>
+		<% @person.deeds.each do |p| %>
 		<tr>
 			<td><%= p.id %></td>
 			<td><%= link_to p.activity.name, activity_path(p.activity.id) %></td>
@@ -32,7 +32,7 @@
 <br>
 <a href="/people">Show all people</a> &nbsp; | &nbsp; <%= link_to "Delete this person", @person, method: :delete, data: { confirm: "Are you sure?" } %> &nbsp; | &nbsp; <%= link_to "Edit this person", edit_person_path(@person) %>
 
-<%= button_to "Show all people", { :action => "index" }, { :method => :get } %>
-<%= button_to "Delete this person", { :action => "destroy", :id => @person.id }, { :confirm => "Are you sure?", :method => :delete } %>
+<%= button_to "Show all people", { :deed => "index" }, { :method => :get } %>
+<%= button_to "Delete this person", { :deed => "destroy", :id => @person.id }, { :confirm => "Are you sure?", :method => :delete } %>
 
 <%= submit_tag "Test me!", :type => 'button', :onclick => 'alert("It works!")' %>

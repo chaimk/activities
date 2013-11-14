@@ -1,5 +1,5 @@
-<% provide(:title, 'Show All Actions') %>
-<h1>All Actions</h1>
+<% provide(:title, 'Show All Deeds') %>
+<h1>All Deeds</h1>
 
 <table cellpadding="5">
 	<tr>
@@ -10,18 +10,18 @@
 		<th>Modified</th>
 	</tr>
 
-	<% @actions.each do |a| %>
+	<% @deeds.each do |a| %>
 	<tr>
 		<td><%= a.id %></td>
 		<td><%= link_to a.person.name, person_path(a.person.id) %></td>
 		<td><%= link_to a.activity.name, activity_path(a.activity.id) %></td>
 		<td><%= a.created_at %></td>
 		<td><%= a.updated_at %></td>
-		<td><%= link_to "Edit", edit_action_path(a.id) %></td>
-		<td><%= link_to "Delete", @action, method: :delete, data: { confirm: "Are you sure?" } %></td>
+		<td><%= link_to "Edit", edit_deed_path(a.id) %></td>
+		<td><%= link_to "Delete", @deed, method: :delete, data: { confirm: "Are you sure?" } %></td>
 	</tr>
 	<% end %>
 
 </table>
 
-<br><a href="/actions/new">Add an action</a>
+<br><a href="/deeds/new">Add an deed</a>
