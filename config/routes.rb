@@ -4,7 +4,7 @@ ActivitiesApp::Application.routes.draw do
 
   resources :people
   resources :activities
-  resources :actions
+  resources :deeds
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup',  to: 'people#new'

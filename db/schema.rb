@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131106055903) do
-
-  create_table "actions", :force => true do |t|
-    t.string   "person_id"
-    t.string   "activity_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20131113190808) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -29,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20131106055903) do
   end
 
   add_index "activities", ["name"], :name => "index_activities_on_name", :unique => true
+
+  create_table "deeds", :force => true do |t|
+    t.string   "person_id"
+    t.string   "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "people", :force => true do |t|
     t.string   "name"

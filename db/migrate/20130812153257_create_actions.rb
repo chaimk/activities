@@ -1,6 +1,6 @@
-class CreateActions < ActiveRecord::Migration
+class CreateDeeds < ActiveRecord::Migration
   def change
-    create_table :actions do |t|
+    create_table :deeds do |t|
       t.string :peopleID
       t.string :activityID
 
