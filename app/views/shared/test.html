@@ -3,3 +3,8 @@
 	<option value="2">Paris</option>
 	<option value="3" selected="selected">New York</option>
 </select>
+
+<%= button_to "Show all people", { :deed => "index" }, { :method => :get } %>
+<%= button_to "Delete this person", { :deed => "destroy", :id => @person.id }, { :confirm => "Are you sure?", :method => :delete } %>
+
+<%= submit_tag "Test me!", :type => 'button', :onclick => 'alert("It works!")' %>

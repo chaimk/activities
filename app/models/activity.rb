@@ -7,6 +7,6 @@ class Activity < ActiveRecord::Base
 		:numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 }
 	validates :category, presence: true
 
-	has_many :actions
+	has_many :deeds
 
 end

@@ -18,10 +18,10 @@
 		<td><%= a.created_at %></td>
 		<td><%= a.updated_at %></td>
 		<td><%= link_to "Edit", edit_deed_path(a.id) %></td>
-		<td><%= link_to "Delete", @deed, method: :delete, data: { confirm: "Are you sure?" } %></td>
+		<td><%= link_to "Delete", a, method: :delete, data: { confirm: "Are you sure?" } %></td>
 	</tr>
 	<% end %>
 
 </table>
 
-<br><a href="/deeds/new">Add an deed</a>
+<br><a href="/deeds/new">Add a deed</a>

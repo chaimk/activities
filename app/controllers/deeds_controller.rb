@@ -7,7 +7,7 @@ class DeedsController < ApplicationController
 	end
 
 	def create
-		@deed = Deed.new({ person_id: 11, activity_id: 1 })
+		@deed = Deed.new(params[:deed])
 		if @deed.save
 			flash[:success] = "New deed was successfully added."
 			flash[:notice] = params

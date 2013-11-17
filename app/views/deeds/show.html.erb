@@ -1,4 +1,4 @@
-<% provide(:title, 'Show An Deed') %>
+<% provide(:title, 'Show A Deed') %>
 <h1> This Deed's Info:</h1>
 <table cellpadding="5">
 	<tr>
@@ -7,7 +7,7 @@
 	</tr>
 	<tr>
 		<th>Person Name</th>
-		<td><%= @deed.person.name %></td>
+		<td><%= @deed.person.name unless @deed.person.nil? %></td>
 	</tr>
 	<tr>
 		<th>Activity ID</th>
@@ -15,11 +15,11 @@
 	</tr>
 	<tr>
 		<th>Activity Name</th>
-		<td><%= @deed.activity.name %></td>
+		<td><%= @deed.activity.name unless @deed.activity.nil? %></td>
 	</tr>
 	<tr>
 		<th>When Created</th>
-		<td><%= @deed.activity.created_at %></td>
+		<td><%= @deed.activity.created_at unless @deed.activity.nil? %></td>
 	</tr>
 </table>
 
