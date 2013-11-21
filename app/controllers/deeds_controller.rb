@@ -10,8 +10,8 @@ class DeedsController < ApplicationController
 		@deed = Deed.new(params[:deed])
 		if @deed.save
 			flash[:success] = "New deed was successfully added."
-			flash[:notice] = params
-			redirect_to @deed
+			# flash[:notice] = params
+			redirect_to deeds_path
 		else
 			render 'new'
 		end
@@ -47,11 +47,15 @@ class DeedsController < ApplicationController
 
 	private
 		def signed_in_user
-			redirect_to signin_path, notice: "Please sign in." unless signed_in?
+			if !signed_in?
+				store_location
+				redirect_to signin_path, notice: "Please sign in."
+			end
 		end
 
 		def admin_user
-			if !current_person.admin
+			if !signed_in_as_admin?
+				store_location
 				flash[:error] = "Operation failed. You must be signed in as an admin-level user to manage deeds."
 				redirect_to signin_path, notice: "Please sign in." 
 			end

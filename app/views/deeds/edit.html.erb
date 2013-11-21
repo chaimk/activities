@@ -1,3 +1,20 @@
-<h1>Actions#edit</h1>
-<p>Find me in app/views/actions/edit.html.erb</p>
-<h2>** Under Construction **</h2>
+<% provide(:title, 'Edit An Activity') %>
+
+<h1>Edit an existing deed</h1>
+
+<%= form_for(@deed) do |a| %>
+
+	<%= render partial: 'shared/error_messages', object: @deed %>
+
+
+	<%= a.label "Person:" %>
+	<%= a.collection_select(:person_id, Person.all, :id, :name) %>
+
+	<%= a.label "Activity:" %>
+	<%= a.collection_select(:activity_id, Activity.all, :id, :name) %>
+	
+	<br><br>
+
+	<%= a.submit "Modify this deed", class: "btn btn-large btn-primary" %>
+
+<% end %>

@@ -58,4 +58,7 @@
 ***** This is the end of the commented-out code -->
 
 <br>
-<a href="/deeds">Show all deeds</a> &nbsp; | &nbsp; <%= link_to "Delete this deed", @deed, method: :delete, data: { confirm: "Are you sure?" } %> &nbsp; | &nbsp; <%= link_to "Edit this deed", edit_deed_path(@deed) %>
+<a href="/deeds">Show all deeds</a>
+<% if signed_in_as_admin? %>
+	 &nbsp; | &nbsp; <%= link_to "Edit this deed", edit_deed_path(@deed) %> &nbsp; | &nbsp; <%= link_to "Delete this deed", @deed, method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

@@ -25,4 +25,16 @@ module SessionsHelper
 		current_person == person
 	end
 
+	def signed_in_as_admin?
+		signed_in? && current_person.admin
+	end
+
+	def redirect_back_or(default)
+		redirect_to(session[:return_to] || default)
+		session.delete(:return_to)
+	end
+
+	def store_location
+		session[:return_to] = request.fullpath unless request.fullpath == "/signin"
+	end
 end

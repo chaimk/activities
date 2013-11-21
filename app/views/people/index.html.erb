@@ -5,6 +5,7 @@
 	<tr>
 		<th>ID</th>
 		<th>Name</th>
+		<th># of Deeds</th>
 		<th>Created</th>
 		<th>Modified</th>
 	</tr>
@@ -13,11 +14,20 @@
 	<tr>
 		<td><%= p.id %></td>
 		<td><%= link_to p.name, person_path(p.id) %></td>
+		<td><%= p.deeds.length %></td>
 		<td><%= p.created_at %></td>
 		<td><%= p.updated_at %></td>
+		<% if signed_in_as_admin? %>
+			<td><%= link_to "Edit", edit_person_path(p.id) %></td>
+			<td><%= link_to "Delete", p, method: :delete, data: { confirm: "Are you sure?" } %></td>
+		<% elsif signed_in? && current_person?(p) %>
+			<td><%= link_to "Edit", edit_person_path(p.id) %></td>
+		<% end %>
 	</tr>
 	<% end %>
 
 </table>
 
-<br><a href="/people/new">Add a person</a>
+<% if signed_in_as_admin? %>
+	<br><a href="/people/new">Add a person</a>
+<% end %>

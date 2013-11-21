@@ -17,8 +17,10 @@
 		<td><%= link_to a.activity.name, activity_path(a.activity.id) %></td>
 		<td><%= a.created_at %></td>
 		<td><%= a.updated_at %></td>
-		<td><%= link_to "Edit", edit_deed_path(a.id) %></td>
-		<td><%= link_to "Delete", a, method: :delete, data: { confirm: "Are you sure?" } %></td>
+		<% if signed_in_as_admin? %>
+			<td><%= link_to "Edit", edit_deed_path(a.id) %></td>
+			<td><%= link_to "Delete", a, method: :delete, data: { confirm: "Are you sure?" } %></td>
+		<% end %>
 	</tr>
 	<% end %>
 

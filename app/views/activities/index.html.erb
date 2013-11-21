@@ -1,7 +1,7 @@
 <% provide(:title, 'Show All Activites') %>
 <h1>List of All Activities</h1>
 
-<table border="1" cellpadding="4" cellspacing="0">
+<table border="1" cellpadding="5">
 	<tr>
 		<th>ID</th>
 		<th>Name</th>
@@ -21,10 +21,18 @@
 		<td><%= t.deeds.length %></td>
 		<td><%= t.created_at %></td>
 		<td><%= t.updated_at %></td>
+		<% if signed_in_as_admin? %>
+			<td><%= link_to "Edit", edit_activity_path(t.id) %></td>
+			<td><%= link_to "Delete", t, method: :delete, data: { confirm: "Are you sure?" } %></td>
+		<% end %>
 	</tr>
 	<% end %>
 
 </table>
 
-<br><a href="/people">Show all people</a> &nbsp; | &nbsp; 
-<a href="/activities/new">Create new activity</a>
+<br><a href="/people">Show all people</a>
+
+<% if signed_in_as_admin? %>
+	&nbsp; | &nbsp; 
+	<a href="/activities/new">Create new activity</a>
+<% end %>

@@ -4,9 +4,9 @@
 			<%= link_to "Activities App", '#', id: "logo" %>
 			<nav>
 				<ul class="nav pull-right">
-					<li><%= link_to "Home", 'people' %></li> 
 					<li>
 						<% if signed_in? %>
+							<% store_location %>
 							<%= link_to "Sign out", signout_path, method: "delete" %>
 							<li id="fat-menu" class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_person.name %>'s Account <b class="caret"></b></a>
@@ -17,10 +17,12 @@
 									<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
 								</ul> 
 							</li>
-						<% else %>
+						<% elsif request.fullpath != "/signin" %>
+							<% store_location %>
 							<%= link_to "Sign in", signin_path %>
 						<% end %>
 					</li>
+					<li><%= link_to "Home", 'people' %></li> 
 				</ul>
 			</nav>
 		</div>
