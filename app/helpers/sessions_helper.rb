@@ -30,11 +30,11 @@ module SessionsHelper
 	end
 
 	def redirect_back_or(default)
-		redirect_to(session[:return_to] || default)
+		redirect_to(session[:return_to] || root_path)
 		session.delete(:return_to)
 	end
 
 	def store_location
-		session[:return_to] = request.fullpath unless request.fullpath == "/signin"
+		session[:return_to] = request.fullpath unless ( request.fullpath == "/signin" || request.fullpath == "/sessions" )
 	end
 end

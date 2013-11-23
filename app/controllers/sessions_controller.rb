@@ -9,9 +9,11 @@ class SessionsController < ApplicationController
 			sign_in(person)
 			flash[:success] = "#{current_person.name} is now signed in."
 			redirect_back_or person
+			# redirect_to root_path
       # Sign the user in and redirect to the user's show page.
 		else
-			redirect_to signin_path, alert: "Invalid name/password combination. Please try again."
+			flash.now[:error] = 'Invalid name/password combination. Please try again.'
+			render 'new'
 		end
 	end
 
