@@ -12,6 +12,10 @@
 
 	<%= a.label "Activity:" %>
 	<%= a.collection_select(:activity_id, Activity.all, :id, :name) %>
+
+	<%= a.label "Points:" %>
+	<%= a.text_field :points %>
+
 	
 	<br><br>
 

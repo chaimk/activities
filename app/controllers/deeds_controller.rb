@@ -8,6 +8,7 @@ class DeedsController < ApplicationController
 
 	def create
 		@deed = Deed.new(params[:deed])
+		@deed.points = @deed.activity.points
 		if @deed.save
 			flash[:success] = "New deed was successfully added."
 			# flash[:notice] = params
@@ -33,7 +34,7 @@ class DeedsController < ApplicationController
 		@deed = Deed.find(params[:id])
 		if @deed.update_attributes(params[:deed])
 			flash[:success] = "Deed was successfully modified."
-			redirect_to @deed
+			redirect_to deeds_path
 		else
 			render 'edit'
 		end

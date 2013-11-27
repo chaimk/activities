@@ -8,8 +8,9 @@ class SessionsController < ApplicationController
 		if person && person.authenticate(params[:session][:password])
 			sign_in(person)
 			flash[:success] = "#{current_person.name} is now signed in."
-			redirect_back_or person
 			# redirect_to root_path
+			redirect_back_or person
+			
       # Sign the user in and redirect to the user's show page.
 		else
 			flash.now[:error] = 'Invalid name/password combination. Please try again.'
