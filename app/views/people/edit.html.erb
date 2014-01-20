@@ -1,12 +1,12 @@
-<% provide(:title, 'Edit A Person') %>
+<% provide(:title, 'Change Password') %>
 
-<h1>Edit an existing person</h1>
+<h1>Change <%=@person.name%>'s password:</h1>
 
 <%= form_for(@person) do |p| %>
 
 	<%= render partial: 'shared/error_messages', object: @person %>
 
-	<%= render partial: 'person_field', object: p %>
+	<%= render partial: 'password_fields', object: p %>
 
 	<%= p.submit "Apply changes", class: "btn btn-large btn-primary" %>
 

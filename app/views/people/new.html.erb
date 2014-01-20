@@ -6,7 +6,10 @@
 
 	<%= render partial: 'shared/error_messages', object: @person %>
 
-	<%= render partial: 'person_field', object: p %>
+	<%= person_field.label :name %>
+	<%= person_field.text_field :name %>
+
+	<%= render partial: 'password_fields', object: p %>
 
 	<%= p.submit "Create this person", class: "btn btn-large btn-primary" %>
 

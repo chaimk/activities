@@ -29,8 +29,10 @@
 	</table>
 <% end %>
 
-<br><a href="/deeds/new">Add a deed</a> &nbsp; | &nbsp; 
-<%= link_to "Edit this person", edit_person_path(@person) %>
-<% if current_person.admin %>
+<br><a href="/deeds/new">Add a deed</a>
+<% if current_person?(@person) || signed_in_as_admin %>
+	&nbsp; | &nbsp; <%= link_to "Edit this person", edit_person_path(@person) %>
+<% end %>
+<% if signed_in_as_admin? %>
 	&nbsp; | &nbsp; <%= link_to "Delete this person", @person, method: :delete, data: { confirm: "Are you sure?" } %> 
 <% end %>
