@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+	include ApplicationHelper
+
 	before_filter :signed_in_user, only: [:edit, :update]
 	before_filter :correct_user, only: [:edit, :update]
 
