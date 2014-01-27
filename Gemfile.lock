@@ -91,6 +91,11 @@ GEM
       activesupport (= 3.2.11)
       bundler (~> 1.0)
       railties (= 3.2.11)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (3.2.11)
       actionpack (= 3.2.11)
       activesupport (= 3.2.11)
@@ -143,6 +148,7 @@ GEM
     websocket (1.0.7)
     xpath (0.1.4)
       nokogiri (~> 1.3)
+    yaml_db (0.2.3)
 
 PLATFORMS
   ruby
@@ -154,9 +160,11 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails (~> 1.4.0)
   jquery-rails (~> 2.0.0)
-  pg (~> 0.12.2)
+  pg
   rails (~> 3.2.11)
+  rails_12factor
   rspec-rails (~> 2.10.0)
   sass-rails (~> 3.2.3)
   sqlite3 (~> 1.3.5)
   uglifier (~> 1.2.3)
+  yaml_db

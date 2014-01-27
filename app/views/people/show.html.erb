@@ -30,7 +30,7 @@
 <% end %>
 
 <br><a href="/deeds/new">Add a deed</a>
-<% if current_person?(@person) || signed_in_as_admin %>
+<% if current_person?(@person) || signed_in_as_admin? %>
 	&nbsp; | &nbsp; <%= link_to "Edit this person", edit_person_path(@person) %>
 <% end %>
 <% if signed_in_as_admin? %>
