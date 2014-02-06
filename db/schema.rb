@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(:version => 20131126054209) do
     t.string   "name"
     t.string   "category"
     t.integer  "points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "activities", ["name"], :name => "index_activities_on_name", :unique => true
 
   create_table "deeds", :force => true do |t|
-    t.integer  "person_id"
-    t.integer  "activity_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "peopleID"
+    t.integer  "activityID"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "points"
   end
 
