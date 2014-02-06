@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20131126054209) do
   add_index "activities", ["name"], :name => "index_activities_on_name", :unique => true
 
   create_table "deeds", :force => true do |t|
-    t.string   "person_id"
-    t.string   "activity_id"
+    t.integer  "person_id"
+    t.integer  "activity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "points"
