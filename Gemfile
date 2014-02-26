@@ -7,14 +7,14 @@ gem 'rails', '~> 3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'bootstrap-sass', '~> 2.1.0'
+gem 'bootstrap-sass', '~>3.1.1'
 gem 'bcrypt-ruby', '~>3.0.1'
 gem 'pg'
 
 
 group :development, :test do
 	gem 'rspec-rails',	'~> 2.10.0'
-	gem 'sqlite3',			'~> 1.3.5'
+#	gem 'sqlite3',			'~> 1.3.5'
 end
 
 group :test do

@@ -34,6 +34,7 @@ textarea {
 	}
 }
 
+/* old stuff from Hartl tutorial:;
 .sidebar {
 	background-color: #FBB;
 	background-image: none;
@@ -42,6 +43,73 @@ textarea {
 		color: #B44;
 	}
 }
+*/
+
+/*
+ * Sidebar
+ */
+
+/* Hide for sub-mobile sizes (less than an old iPhone) */
+.sidebar {
+  display: none;
+}
+@media (min-width: 320px) {  /* This will show for all iPhones */
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    padding-top: 80px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #ecc;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: red;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+@media (min-width: 600px) {
+  .nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+.nav-sidebar > .active > a {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding-right: 10px;
+  padding-left: 30px;
+}
+@media (min-width: 500px) {
+  .main {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
 
 /* typography */
 
