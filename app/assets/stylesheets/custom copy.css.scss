@@ -19,19 +19,6 @@ textarea {
 	resize: vertical;
 }
 
-table {
-	border: 1;
-}
-
-th, td {
-	padding: 5px;
-	text-align: center;
-}
-
-.left {
-	text-align: left;
-}
-
 .center {
 	text-align: center;
 }
@@ -45,14 +32,6 @@ th, td {
 		background-color: #333;
 		background-image: none;
 	}
-}
-
-.field_group {
-	padding-top: 20px;
-}
-
-.bottom_stuff {
-	padding-top: 30px;
 }
 
 /* old stuff from Hartl tutorial:;
@@ -124,7 +103,6 @@ th, td {
   .main {
     padding-right: 50px;
     padding-left: 50px;
-    padding-top: 20px;
   }
 }
 .main .page-header {

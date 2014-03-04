@@ -1,23 +1,25 @@
 <% provide(:title, 'Show All People') %>
 <h1>List of All People</h1>
 
-<table border="1" cellpadding="4" cellspacing="0">
+<table>
 	<tr>
-		<th>ID</th>
-		<th>Name</th>
+		<th class="left">Name</th>
 		<th># of Deeds</th>
-		<th>Created</th>
-		<th>Modified</th>
+		<% if signed_in_as_admin? %>
+			<th>ID</th>
+			<th>Created</th>
+			<th>Modified</th>
+		<% end %>
 	</tr>
 
 	<% @people.each do |p| %>
 	<tr>
-		<td><%= p.id %></td>
-		<td><%= link_to p.name, person_path(p.id) %></td>
+		<td class="left"><%= link_to p.name, person_path(p.id) %></td>
 		<td><%= p.deeds.length %></td>
-		<td><%= p.created_at %></td>
-		<td><%= p.updated_at %></td>
 		<% if signed_in_as_admin? %>
+			<td><%= p.id %></td>
+			<td><%= p.created_at %></td>
+			<td><%= p.updated_at %></td>
 			<td><%= link_to "Edit", edit_person_path(p.id) %></td>
 			<td><%= link_to "Delete", p, method: :delete, data: { confirm: "Are you sure?" } %></td>
 		<% elsif current_person?(p) %>

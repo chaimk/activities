@@ -3,25 +3,31 @@
 
 <table cellpadding="5">
 	<tr>
-		<th>ID</th>
-		<th>Person</th>
-		<th>Activity</th>
+		<th class="left">Person</th>
+		<th class="left">Activity</th>
 		<th>Points</th>
-		<th>Created</th>
-		<th>Modified</th>
+		<% if signed_in_as_admin? %>
+			<th>ID</th>
+			<th>Created</th>
+			<th>Modified</th>
+		<% else %>
+			<th>When</th>
+		<% end %>
 	</tr>
 
 	<% @deeds.each do |a| %>
 	<tr>
-		<td><%= a.id %></td>
-		<td><%= link_to a.person.name, person_path(a.person.id) %></td>
-		<td><%= link_to a.activity.name, activity_path(a.activity.id) %></td>
-		<td><%= a.points %></td>
-		<td><%= a.created_at %></td>
-		<td><%= a.updated_at %></td>
+		<td class="left"><%= link_to a.person.name, person_path(a.person.id) %></td>
+		<td class="left"><%= link_to a.activity.name, activity_path(a.activity.id) %></td>
+		<td class="center"><%= a.points %></td>
 		<% if signed_in_as_admin? %>
+			<td><%= a.id %></td>
+			<td><%= a.created_at %></td>
+			<td><%= a.updated_at %></td>
 			<td><%= link_to "Edit", edit_deed_path(a.id) %></td>
 			<td><%= link_to "Delete", a, method: :delete, data: { confirm: "Are you sure?" } %></td>
+		<% else %>
+			<td><%= a.created_at %></td>
 		<% end %>
 	</tr>
 	<% end %>
