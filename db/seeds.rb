@@ -6,14 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-people = Person.create([
-	{ name:"Chaim", password:"blowf!sh", password_confirmation: "blowf!sh" },
-	{ name:"Adin", password:"bluefish", password_confirmation: "bluefish" },
-	{ name:"Elianna", password:"bluefish", password_confirmation: "bluefish" },
-	{ name:"Yona Gil", password:"bluefish", password_confirmation: "bluefish" },
-	{ name:"Calanit", password:"bluefish", password_confirmation: "bluefish" },
-	{ name:"Ariella", password:"bluefish", password_confirmation: "bluefish" }
-])
+people = Person.create( name:"Chaim", password:"blowf!sh", password_confirmation: "blowf!sh" )
 people[0].admin = true
 
 Activity.create(:name => "Empty dishwasher", :category => "chore", :points => 5)
