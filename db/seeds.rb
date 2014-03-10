@@ -6,5 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-people = Person.create(name:"admin",password:"blowf!sh",password_confirmation:"blowf!sh")
-people.admin = true
+people = Person.create([
+	{ name:"Chaim", password:"blowf!sh", password_confirmation: "blowf!sh" },
+	{ name:"Adin", password:"bluefish", password_confirmation: "bluefish" },
+	{ name:"Elianna", password:"bluefish", password_confirmation: "bluefish" },
+	{ name:"Yona Gil", password:"bluefish", password_confirmation: "bluefish" },
+	{ name:"Calanit", password:"bluefish", password_confirmation: "bluefish" },
+	{ name:"Ariella", password:"bluefish", password_confirmation: "bluefish" }
+])
+people[0].admin = true
+
+Activity.create(:name => "Empty dishwasher", :category => "chore", :points => 5)
+Activity.create(:name => "Sports (1 hour)", :category => "physical", :points => 8)
+Activity.create(:name => "Reading (English) (1 hour)", :category => "enrichment", :points => 4)
+Activity.create(:name => "Paper recyclng", :category => "chores", :points => 2)
+Activity.create(:name => "Take out trash", :category => "chore", :points => 4)
+Activity.create(:name => "Bottle recycling", :category => "chores", :points => 3)
+Activity.create(:name => "Play a sport (1 hour)", :category => "physical", :points => 5)
+Activity.create(:name => "Exercise (first 5 min)", :category => "physical", :points => 2)
+Activity.create(:name => "Wet recycling", :category => "chore", :points => 4)
+Activity.create(:name => "Load dishwasher", :category => "chore", :points => 6)

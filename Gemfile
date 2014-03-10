@@ -14,6 +14,7 @@ gem 'pg'
 
 group :development, :test do
 	gem 'rspec-rails',	'~> 2.10.0'
+	gem 'seed_dumper'
 #	gem 'sqlite3',			'~> 1.3.5'
 end
 
