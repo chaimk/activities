@@ -29,7 +29,7 @@
 				<td><%= p.created_at %></td>
 				<td><%= p.updated_at %></td>
 			<% else %>
-				<td><%= p.created_at %></td>
+				<td><%= p.created_at.strftime("%d/%m/%y %H:%M") %></td>
 			<% end %>
 		</tr>
 		<% end %>
@@ -37,7 +37,7 @@
 	</table>
 <% end %>
 
-<br><a href="/deeds/new">Add a deed</a>
+<br><a href="/deeds/new" class="click_link">Add a deed</a>
 <% if current_person?(@person) || signed_in_as_admin? %>
 	&nbsp; | &nbsp; <%= link_to "Edit this person", edit_person_path(@person) %>
 <% end %>

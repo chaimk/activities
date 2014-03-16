@@ -36,8 +36,8 @@
 			<tr>
 				<td><%= a.id %></td>
 				<td><%= link_to a.person.name, person_path(a.person.id) %></td>
-				<td><%= a.created_at %></td>
-				<td><%= a.updated_at %></td>
+				<td><%= a.created_at.strftime("%d/%m/%y %H:%M") %></td>
+				<td><%= a.updated_at.strftime("%d/%m/%y %H:%M") %></td>
 			</tr>
 		<% end %>
 
@@ -45,4 +45,4 @@
 <% end %>
 
 <br>
-<a href="/activities">Show all activities</a> &nbsp; | &nbsp; <%= link_to "Delete this activity", @activity, method: :delete, data: { confirm: "Are you sure?" } %> &nbsp; | &nbsp; <%= link_to "Edit this activity", edit_activity_path(@activity) %>
+<a href="/activities" class="click_link">Show all activities</a> &nbsp; | &nbsp; <%= link_to "Delete this activity", @activity, method: :delete, data: { confirm: "Are you sure?" } %> &nbsp; | &nbsp; <%= link_to "Edit this activity", edit_activity_path(@activity) %>

@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<th>When Created</th>
-		<td><%= @deed.activity.created_at unless @deed.activity.nil? %></td>
+		<td><%= @deed.activity.created_at.strftime("%d/%m/%y %H:%M") unless @deed.activity.nil? %></td>
 	</tr>
 </table>
 
@@ -58,7 +58,7 @@
 ***** This is the end of the commented-out code -->
 
 <br>
-<a href="/deeds">Show all deeds</a>
+<a href="/deeds" class="click_link">Show all deeds</a>
 <% if signed_in_as_admin? %>
 	 &nbsp; | &nbsp; <%= link_to "Edit this deed", edit_deed_path(@deed) %> &nbsp; | &nbsp; <%= link_to "Delete this deed", @deed, method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>

@@ -27,11 +27,11 @@
 			<td><%= link_to "Edit", edit_deed_path(a.id) %></td>
 			<td><%= link_to "Delete", a, method: :delete, data: { confirm: "Are you sure?" } %></td>
 		<% else %>
-			<td><%= a.created_at %></td>
+			<td><%= a.created_at.strftime("%d/%m/%y %H:%M") %></td>
 		<% end %>
 	</tr>
 	<% end %>
 
 </table>
 
-<br><a href="/deeds/new">Add a deed</a>
+<br><a href="/deeds/new" class="click_link">Add a deed</a>
