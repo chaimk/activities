@@ -16,6 +16,8 @@ gem 'bcrypt-ruby' #, '~>3.0.1'
 
 gem 'pg'
 
+# To keep using attr_accessible instead of strong_parameters:
+gem 'protected_attributes'
 
 group :development, :test do
 	gem 'rspec-rails' #,	'~> 2.10.0'
