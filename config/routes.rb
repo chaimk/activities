@@ -7,9 +7,9 @@ ActivitiesApp::Application.routes.draw do
   resources :deeds
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup',  to: 'people#new'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
+  post '/signup' => 'people#new'
+  post '/signin' => 'sessions#new'
+  delete '/signout' => 'sessions#destroy'
 
   
   # The priority is based upon order of creation:

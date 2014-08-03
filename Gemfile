@@ -46,6 +46,17 @@ gem 'uglifier', '>= 1.3' #,			'~> 1.2.3'
 gem 'jquery-rails' #,	'~> 2.0.0'
 gem 'yaml_db'
 
+
+# Other gems being added for Rails 4 compatibility:
+gem 'actionpack-action_caching', '>=1.0.0'
+gem 'actionpack-page_caching', '>=1.0.0'
+gem 'actionpack-xml_parser', '>=1.0.0'
+gem 'actionview-encoded_mail_to', '>=1.0.4'
+gem 'activerecord-session_store', '>=0.0.1'
+gem 'activeresource', '>=4.0.0.beta1'
+gem 'rails-observers', '>=0.1.1'
+gem 'rails-perftest', '>=0.0.2'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
