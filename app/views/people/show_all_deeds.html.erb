@@ -21,6 +21,8 @@
 			<% end %>
 		</tr>
 
+		<tr><i>This week:</i> <%= Date.current %></tr>
+
 		<% @person.deeds.each do |p| %>
 		<tr>
 			<td class="left"><%= link_to p.activity.name, activity_path(p.activity.id) %></td>

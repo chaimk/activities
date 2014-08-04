@@ -1,4 +1,5 @@
 <% provide(:title, @person.name) %>
+
 <h1><%= @person.name %></h1>
 
 <h2><%= @person.name %>'s Deeds:
@@ -19,7 +20,10 @@
 			<% else %>
 				<th>When</th>
 			<% end %>
+			<th>This week?</th>
 		</tr>
+
+		<tr><i>This week:</i> <%= Date.current.beginning_of_week.strftime("%d/%m/%y") %></tr>
 
 		<% @person.deeds.each do |p| %>
 		<tr>
@@ -31,6 +35,7 @@
 			<% else %>
 				<td><%= p.created_at.strftime("%d/%m/%y %H:%M") %></td>
 			<% end %>
+			<td><%= p.created_this_week? %></td>
 		</tr>
 		<% end %>
 
