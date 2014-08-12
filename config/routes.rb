@@ -8,7 +8,7 @@ ActivitiesApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   post '/signup' => 'people#new'
-  post '/signin' => 'sessions#new'
+  match '/signin' => 'sessions#new', :via => [:put, :get]
   delete '/signout' => 'sessions#destroy'
 
   
