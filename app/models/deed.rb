@@ -4,8 +4,4 @@ class Deed < ActiveRecord::Base
 	belongs_to :person
 	belongs_to :activity
 
-	def self.created_this_week?
-		where (Date.current.beginning_of_week == created_at.beginning_of_week)
-	end
-
 end

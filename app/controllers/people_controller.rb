@@ -32,8 +32,12 @@ class PeopleController < ApplicationController
 	def show
 		@person = Person.find(params[:id])
 		date_range = Date.current.beginning_of_week...(Date.current + 1)
-		@person_deeds = @person.deeds.order("created_at desc")
 		@person_deeds_this_week = Deed.joins(:person).where(deeds: { created_at: date_range, person_id: params[:id] }).order("created_at desc")
+	end
+
+	def show_all_deeds
+		@person = Person.find(params[:id])
+		@person_deeds = @person.deeds.order("created_at desc")
 	end
 
 	def edit
