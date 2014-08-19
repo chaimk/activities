@@ -1,0 +1,9 @@
+<% provide(:title, @person.name) %>
+
+<h1><%= @person.name %></h1>
+
+<h2>Deed history:
+
+<%= render partial:'people/person_deeds_list', object: @person_deeds %>
+
+<%= link_to "Show this week only", @person %>

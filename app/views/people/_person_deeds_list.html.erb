@@ -1,0 +1,49 @@
+<% if person_deeds_list.length == 0 %>
+	None</h2>
+
+<% else %>
+	</h2>
+
+	<table>
+		<tr>
+			<th class="left">Activity</th>
+			<th class="left">Points</th>
+			<% if signed_in_as_admin? %>
+				<th>ID</th>
+				<th>Created</th>
+				<th>Modified</th>
+			<% else %>
+				<th>When</th>
+			<% end %>
+		</tr>
+
+		<% person_deeds_list.each do |p| %>
+		<tr>
+			<td class="left"><%= link_to p.activity.name, activity_path(p.activity.id) %></td>
+			<td><%= p.points %></td>
+			<% if signed_in_as_admin? %>
+				<td><%= p.id %></td>
+				<td><%= p.created_at %></td>
+				<td><%= p.updated_at %></td>
+			<% else %>
+				<td><%= p.created_at.strftime("%d/%m/%y %H:%M") %></td>
+			<% end %>
+		</tr>
+		<% end %>
+
+		<tr>
+			<td><b>Total:</b></td>
+			<td><b><%= person_deeds_list.reduce(0) {|sum, hash| sum + hash.points} %></b></td>
+		</tr>
+
+	</table>
+<% end %>
+
+<br><a href="/deeds/new" class="click_link">Add a deed</a>
+<% if current_person?(@person) || signed_in_as_admin? %>
+	&nbsp; | &nbsp; <%= link_to "Edit this person", edit_person_path(@person) %>
+<% end %>
+<% if signed_in_as_admin? %>
+	&nbsp; | &nbsp; <%= link_to "Delete this person", @person, method: :delete, data: { confirm: "Are you sure?" } %> 
+<% end %>
+&nbsp; | &nbsp; 
