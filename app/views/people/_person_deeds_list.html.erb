@@ -7,7 +7,7 @@
 	<table>
 		<tr>
 			<th class="left">Activity</th>
-			<th class="left">Points</th>
+			<th class="left">Pts</th>
 			<% if signed_in_as_admin? %>
 				<th>ID</th>
 				<th>Created</th>
@@ -39,7 +39,8 @@
 	</table>
 <% end %>
 
-<br><a href="/deeds/new" class="click_link">Add a deed</a>
+<div class=".center">
+<br><a href="/deeds/new" class="click_link">Add&nbsp;a&nbsp;deed</a>
 <% if current_person?(@person) || signed_in_as_admin? %>
 	&nbsp; | &nbsp; <%= link_to "Edit this person", edit_person_path(@person) %>
 <% end %>
