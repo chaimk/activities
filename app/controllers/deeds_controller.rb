@@ -12,7 +12,7 @@ class DeedsController < ApplicationController
 		if @deed.save
 			flash[:success] = "New deed was successfully added."
 			# flash[:notice] = params
-			redirect_to deeds_path
+			redirect_to current_person
 		else
 			render 'new'
 		end

@@ -14,7 +14,13 @@
 
 	<% @people.each do |p| %>
 	<tr>
-		<td class="left"><%= link_to p.name, person_path(p.id) %></td>
+		<td class="left">
+			<% if current_person == p %>
+				<b><%= link_to p.name, person_path(p.id) %> &nbsp;(me)</b>
+			<% else %>
+				<%= link_to p.name, person_path(p.id) %>
+			<% end %>
+		</td>
 		<td><%= p.deeds.length %></td>
 		<% if signed_in_as_admin? %>
 			<td><%= p.id %></td>

@@ -1,10 +1,9 @@
 <% provide(:title, @person.name) %>
-
 <h1><%= @person.name %></h1>
 
-<h2><%= @person.name %>'s deeds this week (from <%= Date.current.beginning_of_week.strftime("%d/%m/%y") %>):
+<h2><%= @person.name %>'s deed history:
 
-<% if @person_deeds_this_week.length == 0 %>
+<% if @person_deeds.length == 0 %>
 	None</h2>
 
 <% else %>
@@ -13,7 +12,6 @@
 	<table>
 		<tr>
 			<th class="left">Activity</th>
-			<th class="left">Points</th>
 			<% if signed_in_as_admin? %>
 				<th>ID</th>
 				<th>Created</th>
@@ -23,10 +21,9 @@
 			<% end %>
 		</tr>
 
-		<% @person_deeds_this_week.each do |p| %>
+		<% @person_deeds.each do |p| %>
 		<tr>
 			<td class="left"><%= link_to p.activity.name, activity_path(p.activity.id) %></td>
-			<td><%= p.points %></td>
 			<% if signed_in_as_admin? %>
 				<td><%= p.id %></td>
 				<td><%= p.created_at %></td>
@@ -47,4 +44,4 @@
 <% if signed_in_as_admin? %>
 	&nbsp; | &nbsp; <%= link_to "Delete this person", @person, method: :delete, data: { confirm: "Are you sure?" } %> 
 <% end %>
-&nbsp; | &nbsp; <a href= <%= @person.id.to_s + "/show_all_deeds" %> >Show deed history</a>
+&nbsp; | &nbsp; <%= link_to "Show this week only", @person %>
