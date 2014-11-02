@@ -38,6 +38,7 @@ class PeopleController < ApplicationController
 	def show_all_deeds
 		@person = Person.find(params[:id])
 		@person_deeds = @person.deeds.order("created_at desc")
+		@person_deeds_count = @person.deeds.sum(:points)
 	end
 
 	def edit

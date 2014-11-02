@@ -16,10 +16,11 @@ ActivitiesApp::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.js_compressor  = :uglifier
-  config.assets.css_compressor = :sass
+  # config.assets.css_compressor = :sass
   
-  # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  # Fallback to assets pipeline if a precompiled asset is missed
+  config.assets.compile = true
+  # config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -65,4 +66,10 @@ ActivitiesApp::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 end

@@ -1,13 +1,23 @@
-<% if person_deeds_list.length == 0 %>
-	None</h2>
+<% provide(:title, @person.name) %>
 
+<h1><%= @person.name %></h1>
+
+<<<<<<< HEAD
+<h2><%= @person.name %>'s deeds this week (from <%= Date.current.beginning_of_week.strftime("%d/%m/%y") %>):
+=======
+<h2>Deeds this week (from <%= Date.current.beginning_of_week.strftime("%d/%m/%y") %>):
+>>>>>>> 650c26413440577fee424ff1c5e2fbad243a6d7e
+
+<%= render partial:'people/person_deeds_list', object: @person_deeds_this_week %>
+
+<<<<<<< HEAD
 <% else %>
 	</h2>
 
 	<table>
 		<tr>
 			<th class="left">Activity</th>
-			<th class="left">Pts</th>
+			<th class="left">Points</th>
 			<% if signed_in_as_admin? %>
 				<th>ID</th>
 				<th>Created</th>
@@ -17,7 +27,7 @@
 			<% end %>
 		</tr>
 
-		<% person_deeds_list.each do |p| %>
+		<% @person_deeds_this_week.each do |p| %>
 		<tr>
 			<td class="left"><%= link_to p.activity.name, activity_path(p.activity.id) %></td>
 			<td><%= p.points %></td>
@@ -31,20 +41,18 @@
 		</tr>
 		<% end %>
 
-		<tr>
-			<td><b>Total:</b></td>
-			<td><b><%= person_deeds_list.reduce(0) {|sum, hash| sum + hash.points} %></b></td>
-		</tr>
-
 	</table>
 <% end %>
 
-<div class=".center">
-<br><a href="/deeds/new" class="click_link">Add&nbsp;a&nbsp;deed</a>
+<br><a href="/deeds/new" class="click_link">Add a deed</a>
 <% if current_person?(@person) || signed_in_as_admin? %>
 	&nbsp; | &nbsp; <%= link_to "Edit this person", edit_person_path(@person) %>
 <% end %>
 <% if signed_in_as_admin? %>
 	&nbsp; | &nbsp; <%= link_to "Delete this person", @person, method: :delete, data: { confirm: "Are you sure?" } %> 
 <% end %>
-&nbsp; | &nbsp; 
+&nbsp; | &nbsp; <a href= <%= @person.id.to_s + "/show_all_deeds" %> >Show deed history</a>
+=======
+<a href= <%= @person.id.to_s + "/show_all_deeds" %> >Show deed history</a>
+</div>
+>>>>>>> 650c26413440577fee424ff1c5e2fbad243a6d7e

@@ -14,24 +14,24 @@
 		<div class="row">
 
 			<!-- Sidebar: -->
-			<div class="col-xs-3 col-sm-2 sidebar">
+			<div class="sidebar">
 				<%= render 'layouts/sidebar' %>
 			</div>
 
 			<!-- Main: -->
-			<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 main">
+			<div class="main">
 
-					<% flash.each do |key, value| %>
+				<% flash.each do |key, value| %>
 					<div class="alert alert-<%= key %>"><%= value %></div>
-					<% end %>
-					<%= yield %>
+				<% end %>
+				<%= yield %>
 			</div>
 		</div>
 
 		<!-- Debug info: -->
 		<% if signed_in_as_admin? %>
 			<div class="row">
-				<div class="col-xs-9 col-xs-offset-2 col-sm-10 col-sm-offset-2 main">
+				<div class="main">
 					<%= debug(params) if Rails.env.development? %>
 					<%= params.inspect %>
 				</div>
