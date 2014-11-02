@@ -3,6 +3,7 @@ ActivitiesApp::Application.routes.draw do
   root :to => 'activities#index'
 
   resources :people
+  get '/people/:id/show_all_deeds' => 'people#show_all_deeds'
   resources :activities
   resources :deeds
   resources :sessions, only: [:new, :create, :destroy]

@@ -1,9 +1,9 @@
 <% provide(:title, @person.name) %>
 <h1><%= @person.name %></h1>
 
-<h2><%= @person.name %>'s Deeds:
+<h2><%= @person.name %>'s deed history:
 
-<% if @person.deeds.length == 0 %>
+<% if @person_deeds.length == 0 %>
 	None</h2>
 
 <% else %>
@@ -21,9 +21,7 @@
 			<% end %>
 		</tr>
 
-		<tr><i>This week:</i> <%= Date.current %></tr>
-
-		<% @person.deeds.each do |p| %>
+		<% @person_deeds.each do |p| %>
 		<tr>
 			<td class="left"><%= link_to p.activity.name, activity_path(p.activity.id) %></td>
 			<% if signed_in_as_admin? %>
@@ -46,3 +44,4 @@
 <% if signed_in_as_admin? %>
 	&nbsp; | &nbsp; <%= link_to "Delete this person", @person, method: :delete, data: { confirm: "Are you sure?" } %> 
 <% end %>
+&nbsp; | &nbsp; <%= link_to "Show this week only", @person %>
