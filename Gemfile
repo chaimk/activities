@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.1.4'
 
-gem 'rails', '~> 4.1.4'
+gem 'rails', '~> 4.1.7'
 
 gem 'rails4_upgrade'
 
@@ -34,7 +34,7 @@ group :production do
 	gem 'rails_12factor'
 end
 
-gem 'railties', '>= 4.1.4'
+gem 'railties', '~> 4.1.7'
 gem 'sass-rails', '>= 4.0' #,		'~> 3.2.3'
 gem 'coffee-rails', '>= 4.0' #,	'~> 3.2.1'
 
