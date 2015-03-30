@@ -3,7 +3,7 @@ class Person < ActiveRecord::Base
 
 	has_secure_password
 
-	has_many :deeds
+	has_many :deeds, dependent: :destroy
 
 	before_save :create_remember_token
 
