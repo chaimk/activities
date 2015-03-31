@@ -14,3 +14,8 @@ Quickee Notes about Usage
 Many functions, such as adding and removing people and activities, are editable only by an administrator. Contact me if you wish to try out the admin functions. The app uses a home-grown authentication and authorization scheme based on the Hartl tutorial. 
 
 You must log in to create a deed. When a deed is created, it is automatically assigned to the logged-in user. However, all users may look at deeds performed by other users. All users also have read-only access to the list of people and activities.
+
+Background Info
+---------------
+
+This is my first Rails app and was developed both to be a learning exercise as well as a real functioning app. It has a fairly simple 3-table schema that enabled me to implement many basic but essential components that would be required for any such app.
