@@ -4,10 +4,12 @@
 
 <%= form_for(@deed) do |a| %>
 
-	<%= render partial: 'shared/error_messages', object: @deed %>
-
-
-	<%= a.hidden_field(:person_id) %>
+  <% if signed_in_as_admin? %>
+    <%= a.label "Person:" %>
+    <%= a.collection_select(:person_id, Person.all, :id, :name) %>
+  <% else %>
+  	<%= a.hidden_field(:person_id) %>
+  <% end %>
 
 	<%= a.label "Activity:" %>
 	<%= a.collection_select(:activity_id, Activity.all, :id, :name) %>
