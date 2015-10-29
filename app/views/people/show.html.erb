@@ -4,7 +4,7 @@
 
 <h2>Deeds this week (from <%= Date.current.beginning_of_week.strftime("%d/%m/%y") %>):
 
-<%= render partial:'people/person_deeds_list', object_to_check: @person_deeds_this_week %>
+<%= render 'people/person_deeds_list', person_deeds_list: @person_deeds_this_week %>
 
 <br>
 <div font-size=".8em">[<a href= <%= @person.id.to_s + "/show_all_deeds" %> >Show deed history</a>]</div>

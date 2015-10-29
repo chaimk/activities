@@ -4,7 +4,7 @@
 
 <h2>Deed history:
 
-<%= render partial:'people/person_deeds_list', object_to_check: @person_deeds %>
+<%= render 'people/person_deeds_list', person_deeds_list: @person_deeds %>
 
 <br>
 <div font-size=".8em">[<%= link_to "Show this week only", @person %>]</div>
