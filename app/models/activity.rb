@@ -9,4 +9,6 @@ class Activity < ActiveRecord::Base
 
 	has_many :deeds, dependent: :destroy
 
+  default_scope { order({category: :asc}, name: :asc) }
+
 end
