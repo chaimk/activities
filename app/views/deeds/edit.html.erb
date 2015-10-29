@@ -4,7 +4,7 @@
 
 <%= form_for(@deed) do |a| %>
 
-	<%= render partial: 'shared/error_messages', object: @deed %>
+	<%= render 'shared/error_messages', object_to_check: @deed %>
 
 
 	<%= a.label "Person:" %>

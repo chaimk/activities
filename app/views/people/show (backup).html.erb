@@ -8,7 +8,7 @@
 <h2>Deeds this week (from <%= Date.current.beginning_of_week.strftime("%d/%m/%y") %>):
 >>>>>>> 650c26413440577fee424ff1c5e2fbad243a6d7e
 
-<%= render partial:'people/person_deeds_list', object: @person_deeds_this_week %>
+<%= render partial:'people/person_deeds_list', object_to_check: @person_deeds_this_week %>
 
 <<<<<<< HEAD
 <% else %>
