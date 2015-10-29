@@ -4,7 +4,7 @@
 
 <%= form_for(@activity) do |t| %>
 
-	<%= render 'shared/error_messages' object_to_check: @activity %>
+	<%= render 'shared/error_messages', object_to_check:@activity %>
 
 	<%= t.label :name %>
 	<%= t.text_field :name %>
