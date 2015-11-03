@@ -4,7 +4,7 @@
 
 <!-- <% @activity.attributes.to_options.to_a %> -->
 
-<table border="1" cellpadding="4" cellspacing="0">
+<table>
 	<tr>
 		<% @activity.attributes.each do |a| %>
 			<th><%= a[0] %></th>
@@ -24,7 +24,7 @@
 <% else %>
 	<h2>List of times activity "<%= @activity.name %>" has been performed:</h2>
 
-	<table border="1" cellpadding="4" cellspacing="0">
+	<table>
 		<tr>
 			<th>ID</th>
 			<th>Person</th>

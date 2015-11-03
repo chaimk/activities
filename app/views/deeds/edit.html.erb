@@ -9,15 +9,17 @@
 
 	<%= a.label "Person:" %>
 	<%= a.collection_select(:person_id, Person.all, :id, :name) %>
-
+<br>
 	<%= a.label "Activity:" %>
 	<%= a.collection_select(:activity_id, Activity.all, :id, :name) %>
-
+<br>
 	<%= a.label "Points:" %>
 	<%= a.text_field :points %>
-
+<br>
+	<%= a.label "Performance Date:" %>
+	<%= a.text_field :performed_at %>
 	
-	<br><br>
+<br><br>
 
 	<%= a.submit "Modify this deed", class: "btn btn-large btn-primary" %>
 

@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<th>When Created</th>
-		<td><%= @deed.activity.created_at.strftime("%d/%m/%y %H:%M") unless @deed.activity.nil? %></td>
+		<td><%= @deed.activity.created_at unless @deed.activity.nil? %></td>
 	</tr>
 </table>
 

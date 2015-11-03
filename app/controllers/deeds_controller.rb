@@ -9,6 +9,7 @@ class DeedsController < ApplicationController
 	def create
 		@deed = Deed.new(params[:deed])
 		@deed.points = @deed.activity.points
+		@deed.performed_at = Time.now
 		if @deed.save
 			flash[:success] = "New deed was successfully added."
 			# flash[:notice] = params

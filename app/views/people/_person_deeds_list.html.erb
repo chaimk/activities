@@ -12,6 +12,7 @@
 				<th>ID</th>
 				<th>Created</th>
 				<th>Modified</th>
+				<th>Performed at</th>
 			<% else %>
 				<th>When</th>
 			<% end %>
@@ -25,8 +26,12 @@
 				<td><%= p.id %></td>
 				<td><%= p.created_at %></td>
 				<td><%= p.updated_at %></td>
+				<td><%= p.performed_at %></td>
+  			<td><%= link_to "Edit", edit_deed_path(p.id) %></td>
+  			<td><%= link_to "Delete", p, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        
 			<% else %>
-				<td><%= p.created_at %></td>
+				<td><%= p.performed_at %></td>
 			<% end %>
 		</tr>
 		<% end %>
