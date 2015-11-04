@@ -3,16 +3,16 @@
 
 <table cellpadding="5">
 	<tr>
-		<th class="left">Person</th>
+		<th class="left person">Person</th>
 		<th class="left">Activity</th>
-		<th>Points</th>
+		<th>Pts</th>
 		<% if signed_in_as_admin? %>
 			<th>ID</th>
 			<th>Created</th>
 			<th>Modified</th>
 			<th>Performed at</th>
 		<% else %>
-			<th>When</th>
+			<th class="date">When</th>
 		<% end %>
 	</tr>
 

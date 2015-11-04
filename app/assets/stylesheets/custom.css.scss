@@ -35,10 +35,24 @@ table {
 	border: 0;
 }
 
-th, td {
-	padding: 1px 6px;
+td {
+	padding: 1px 5px;
 	text-align: center;
   font-size: 0.9em;
+}
+
+th {
+	padding: 2px;
+	text-align: center;
+  font-size: 0.8em;
+}
+
+th.date {
+  width: 140px;
+}
+
+th.person {
+  width: 75px;
 }
 
 .left {
