@@ -45,15 +45,16 @@ th {
 	padding: 2px;
 	text-align: center;
   font-size: 70%;
+
+  .date {
+    width: 120px;
+  }
+
+  .person {
+    width: 65px;
+  }
 }
 
-th.date {
-  width: 120px;
-}
-
-th.person {
-  width: 65px;
-}
 
 .left {
 	text-align: left;
@@ -142,16 +143,17 @@ th.person {
   th {
   	padding: 3px;
     font-size: 80%;
-  }
 
-  th.date {
-    width: 140px;
-  }
+    .date {
+      width: 140px;
+    }
 
-  th.person {
-    width: 75px;
+    .person {
+      width: 75px;
+    }
   }
 }
+
 .nav-sidebar > .active > a {
   color: #fff;
   background-color: #428bca;
@@ -164,18 +166,18 @@ th.person {
 
 .main {
   padding-right: 10px;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 @media (min-width: 480px) {
   .main {
-    padding-right: 50px;
-    padding-left: 100px;
+    padding-right: 30px;
+    padding-left: 80px;
     font-size: 1.1em;
   }
 }
 @media (min-width: 600px) {
   .main {
-    padding-left: 150px;
+    padding-left: 130px;
   }
 }
 .main .page-header {
