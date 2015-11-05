@@ -2,6 +2,8 @@
 
 <h1><%= @person.name %></h1>
 
+<br><p><a href="/deeds/new" class="click_link">Add&nbsp;a&nbsp;deed</a></p>
+
 <h2>Deeds this week (from <%= Date.current.beginning_of_week.strftime("%d/%m/%y") %>):
 
 <%= render 'people/person_deeds_list', person_deeds_list: @person_deeds_this_week %>
